@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# its v2
+
 import os
 import threading
 import flask
@@ -21,7 +23,12 @@ from device import DeviceInfo
 last_image_deque = deque(maxlen=8)
 
 database = DB(Config.DB_HOST, Config.DB_USER, Config.DB_PASS, Config.DB_NAME)
-database_central = DB(Config.DB_CENTRAL_HOST, Config.DB_CENTRAL_USER, Config.DB_CENTRAL_PASS, Config.DB_CENTRAL_NAME)
+database_central = DB(
+    Config.DB_CENTRAL_HOST,
+    Config.DB_CENTRAL_USER,
+    Config.DB_CENTRAL_PASS,
+    Config.DB_CENTRAL_NAME,
+)
 
 detect_buffer = queue.Queue()
 
@@ -75,13 +82,13 @@ def insertDatabase():
     buffer_central = duplicate_buffer + failed_batch_insert_central
 
     if len(buffer) > 0:
-       if not database.batchInsert(buffer):
-           if len(failed_batch_insert) < 50:
-               failed_batch_insert += buffer
-           else:
-               print("max failed reached")
-       else:
-           failed_batch_insert = []
+        if not database.batchInsert(buffer):
+            if len(failed_batch_insert) < 50:
+                failed_batch_insert += buffer
+            else:
+                print("max failed reached")
+        else:
+            failed_batch_insert = []
 
     if len(buffer_central) > 0:
         if not database_central.batchInsertCentral(buffer_central):
@@ -247,15 +254,15 @@ def get_deque():
             with open(image_path, "rb") as image_file:
                 encoded_image = base64.b64encode(image_file.read()).decode("utf-8")
                 obj = {
-                    'gender' : item['gender'], 
-                    'gender_score' : item['gender_score'],
-                    'age' : item['age'],
-                    'age_score' : item['age_score'],
-                    'attr_headwear' : item['attr_headwear'], 
-                    'attr_mask' : item['attr_mask'], 
-                    'attr_glasses' : item['attr_glasses'], 
-                    'img_name' : encoded_image, 
-                    'timestamp' : item['timestamp'], 
+                    "gender": item["gender"],
+                    "gender_score": item["gender_score"],
+                    "age": item["age"],
+                    "age_score": item["age_score"],
+                    "attr_headwear": item["attr_headwear"],
+                    "attr_mask": item["attr_mask"],
+                    "attr_glasses": item["attr_glasses"],
+                    "img_name": encoded_image,
+                    "timestamp": item["timestamp"],
                 }
             array_image.append(obj)
 
