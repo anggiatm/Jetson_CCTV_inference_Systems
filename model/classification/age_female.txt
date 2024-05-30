@@ -1,0 +1,4 @@
+fc
+fs
+ft
+fw

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Camera - Setting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sb-admin/css/sb-admin-2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sb-admin/vendor/fontawesome-free/css/all.min.css') }}">
+
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        {% include 'sidebar.html' %}
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+                {% include 'topbar.html' %}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Settings</h1>
+                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Area Chart -->
+                        <div class="col-xl-7 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Preview</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body px-1 py-1">
+                                    <img id="video_feed" class="img-fluid"
+                                        style="width: 100%;" src="{{ url_for('video_feed') }}" alt="...">
+                                    <!-- <video class="img-fluid" id="video-player" autoplay controls playsinline
+                                        muted>Your
+                                        browser does not support video</video> -->
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-5 col-lg-7">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card shadow mb-4">
+                                        <!-- Card Header - Dropdown -->
+                                        <div
+                                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                            <h6 class="m-0 font-weight-bold text-primary">Setting</h6>
+                                        </div>
+                                        <!-- Card Body -->
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-5 px-1">
+                                                    <div class="row justify-content-center mt-4">
+                                                        <div class="input-group input-group-sm">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="label_roi_x">ROI
+                                                                    Xmin</span>
+                                                            </div>
+                                                            <input onchange="setting.control('roi_xmin')" type="number"
+                                                                class="form-control form-control-sm" id="roi_xmin"
+                                                                placeholder="Masukkan nilai" min="0">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row justify-content-center mt-4">
+                                                        <div class="input-group input-group-sm">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="label_roi_y">ROI
+                                                                    Ymin</span>
+                                                            </div>
+                                                            <input onchange="setting.control('roi_ymin')" type="number"
+                                                                class="form-control form-control-sm" id="roi_ymin"
+                                                                placeholder="Masukkan nilai" min="0">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row justify-content-center mt-4">
+                                                        <div class="input-group input-group-sm">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="label_roi_w">ROI
+                                                                    Xmax</span>
+                                                            </div>
+                                                            <input onchange="setting.control('roi_xmax')" type="number"
+                                                                class="form-control form-control-sm" id="roi_xmax"
+                                                                placeholder="Masukkan nilai" min="0">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row justify-content-center mt-4">
+                                                        <div class="input-group input-group-sm">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="label_roi_h">ROI
+                                                                    Ymax</span>
+                                                            </div>
+                                                            <input onchange="setting.control('roi_ymax')" type="number"
+                                                                class="form-control form-control-sm" id="roi_ymax"
+                                                                placeholder="Masukkan nilai" min="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-5 px-1">
+                                                    <div class="row justify-content-center mt-4">
+                                                        <div class="input-group input-group-sm">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="label_input_x">INPUT
+                                                                    Xmin</span>
+                                                            </div>
+                                                            <input onchange="setting.control('input_xmin')"
+                                                                type="number" class="form-control form-control-sm"
+                                                                id="input_xmin" placeholder="Masukkan nilai" min="0">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row justify-content-center mt-4">
+                                                        <div class="input-group input-group-sm">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="label_input_y">INPUT
+                                                                    Ymin</span>
+                                                            </div>
+                                                            <input onchange="setting.control('input_ymin')"
+                                                                type="number" class="form-control form-control-sm"
+                                                                id="input_ymin" placeholder="Masukkan nilai" min="0">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row justify-content-center mt-4">
+                                                        <div class="input-group input-group-sm">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="label_input_w">INPUT
+                                                                    Xmax</span>
+                                                            </div>
+                                                            <input onchange="setting.control('input_xmax')"
+                                                                type="number" class="form-control form-control-sm"
+                                                                id="input_xmax" placeholder="Masukkan nilai" min="0">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row justify-content-center mt-4">
+                                                        <div class="input-group input-group-sm">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="label_input_h">INPUT
+                                                                    Ymax</span>
+                                                            </div>
+                                                            <input onchange="setting.control('input_ymax')"
+                                                                type="number" class="form-control form-control-sm"
+                                                                id="input_ymax" placeholder="Masukkan nilai" min="0">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <hr class="sidebar-divider">
+                                            <div class="col-auto">
+                                                <button class="btn btn-primary"
+                                                    onclick="setting.save_roi_settings()">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card shadow mb-4">
+                                        <!-- Card Header - Dropdown -->
+                                        <div
+                                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                            <h6 class="m-0 font-weight-bold text-primary">DB Config</h6>
+                                        </div>
+                                        <!-- Card Body -->
+                                        <div class="card-body">
+                                            <!-- <div class="form-group row">
+                                                <label for="camera-source" class="col-sm-2 col-form-label">
+                                                    Camera Source</label>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio"
+                                                        name="inlineRadioOptions" id="source-usb" value="usb">
+                                                    <label class="form-check-label" for="source-usb">USB</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio"
+                                                        name="inlineRadioOptions" id="source-rtsp" value="rtsp">
+                                                    <label class="form-check-label" for="source-rtsp">RTSP</label>
+                                                </div>
+                                            </div> -->
+
+                                            <div class="form-group row">
+                                                <label for="rtsp-url" class="col-sm-2 col-form-label">Camera
+                                                    Source</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="rtsp-url" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="threshold" class="col-sm-2 col-form-label">
+                                                    Sensifity</label>
+                                                <div class="col-sm-10">
+                                                    <input type="range" class="custom-range" min="0" max="1" step="0.1"
+                                                        id="threshold" readonly disabled>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="form-group row ">
+                                                <div class="col-auto">
+                                                    <button class="btn btn-primary"
+                                                        onclick="setting.save_settings()">Save</button>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- End of Main Content -->
+
+    {% include 'footer.html' %}
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ url_for('static', filename='sb-admin/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='sb-admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='sb-admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='sb-admin/js/sb-admin-2.min.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='sb-admin/vendor/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='sb-admin/js/demo/chart-area-demo.js') }}"></script>
+    <script src="{{ url_for('static', filename='sb-admin/js/demo/chart-pie-demo.js') }}"></script> -->
+
+    <!-- <script type='text/javascript' src='/static/webrtc.js'></script> -->
+    <script src="{{ url_for('static', filename='setting.js') }}"></script>
+
+
+
+
+</body>
+
+</html>

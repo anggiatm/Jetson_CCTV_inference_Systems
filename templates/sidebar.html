@@ -1,0 +1,46 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-crosshairs"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Camera<sup>*</sup></div>
+    </a>
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+        <a class="nav-link" href="/">
+            <i class="fas fa-fw fa-video"></i>
+            <span>Dashboard</span></a>
+    </li>
+    <hr class="sidebar-divider">
+
+
+
+    <li class="nav-item {% if active_page == 'setting' %}active{% endif %}">
+        <a class="nav-link" href="setting">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Setting</span></a>
+    </li>
+
+
+    <li class="nav-item {% if active_page == 'data' %}active{% endif %}">
+        <a class="nav-link" href="data">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Data</span></a>
+    </li>
+
+
+    <hr class="sidebar-divider">
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+    <!-- Sidebar Message -->
+    <div class="sidebar-card d-none d-lg-flex">
+        <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+        <p class="text-center mb-2"><strong>detect+ </strong></p>
+    </div>
+</ul>
+<!-- End of Sidebar -->
